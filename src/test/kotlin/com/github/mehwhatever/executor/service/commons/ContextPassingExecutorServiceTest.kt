@@ -1,4 +1,4 @@
-package com.mehwhatever.executor.service.commons
+package com.github.mehwhatever.executor.service.commons
 
 import java.util.UUID
 import java.util.concurrent.Callable
@@ -50,7 +50,9 @@ internal class ContextPassingExecutorServiceTest {
         val completed = AtomicBoolean(false)
         ThreadLocalContext.setContext(dummyContext)
         val future = executorServiceUnderTest.submit {
-            Assertions.assertEquals(dummyContext, ThreadLocalContext.getContext())
+            Assertions.assertEquals(dummyContext,
+                ThreadLocalContext.getContext()
+            )
             completed.set(true)
         }
         await().until { future.isDone }

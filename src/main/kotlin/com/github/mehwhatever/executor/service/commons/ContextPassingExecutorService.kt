@@ -1,4 +1,4 @@
-package com.mehwhatever.executor.service.commons
+package com.github.mehwhatever.executor.service.commons
 
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit
 import java.util.function.Consumer
 import java.util.function.Supplier
 
+@Suppress("TooManyFunctions")
 class ContextPassingExecutorService<T>(
     private val delegate: ExecutorService,
     private val contextSupplier: Supplier<T>,
